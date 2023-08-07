@@ -13,6 +13,7 @@ const score1 = $('#score--1');
 
 ///////////////////
 // VAR GAME
+const maxLevel = 100;
 
 let isWin = false;
 let activePlayer = 0;
@@ -40,7 +41,7 @@ btnRoll.click(function () {
     dice.removeClass('hidden');
     dice.attr('src', `dice-${randomDice}.png`);
     if (randomDice !== 1) {
-      if (fixScore[activePlayer] < 20) {
+      if (fixScore[activePlayer] < maxLevel) {
         var audio = new Audio('./effects/dice.mp3');
         audio.play();
       }
@@ -69,7 +70,7 @@ btnHold.click(function () {
       $('.icon-medal--0').addClass('hidden');
     }
 
-    if (fixScore[activePlayer] >= 100) {
+    if (fixScore[activePlayer] >= maxLevel) {
       var audio3 = new Audio('./effects/win.mp3');
       audio3.play();
       $(`.player--${activePlayer}`).addClass('player--winner');
