@@ -69,7 +69,7 @@ btnHold.click(function () {
       $('.icon-medal--0').addClass('hidden');
     }
 
-    if (fixScore[activePlayer] >= 20) {
+    if (fixScore[activePlayer] >= 100) {
       var audio3 = new Audio('./effects/win.mp3');
       audio3.play();
       $(`.player--${activePlayer}`).addClass('player--winner');

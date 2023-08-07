@@ -215,7 +215,9 @@ button:focus {
     display: none;
   }
 
-  .icon {
+  .icon-dice,
+  .icon-restart,
+  .icon-hold {
     height: 2.5rem;
     width: 2.5rem;
     fill: #c7365f;
@@ -243,7 +245,7 @@ button:focus {
   }
 
   .btn--new {
-    top: 3rem;
+    top: 2.4rem;
     font-size: 1.2rem;
     display: flex;
     align-items: center;
@@ -272,5 +274,13 @@ button:focus {
     width: 6rem;
     left: 82%;
     justify-content: center;
+  }
+
+  .name {
+    margin-top: 2rem;
+  }
+
+  .score {
+    height: 45%;
   }
 }
