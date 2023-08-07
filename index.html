@@ -13,7 +13,16 @@
 <body>
   <main>
     <section class="player player--0 player--active">
-      <h2 class="name" id="name--0">Player 1</h2>
+      <h2 class="name" id="name--0">
+        <span class="medal">
+          <svg class="icon icon-medal icon-medal--0 hidden">
+            <use xlink:href="./symbol-defs.svg#icon-award-fill" />
+          </svg>
+        </span>
+        <span class="name-player--0">
+          Player 1
+        </span>
+      </h2>
       <p class="score" id="score--0">0</p>
       <div class="current">
         <p class="current-label">Current</p>
@@ -21,7 +30,16 @@
       </div>
     </section>
     <section class="player player--1">
-      <h2 class="name" id="name--1">Player 2</h2>
+      <h2 class="name" id="name--1">
+        <span class="medal">
+          <svg class="icon icon-medal icon-medal--1 hidden">
+            <use xlink:href="./symbol-defs.svg#icon-award-fill" />
+          </svg>
+        </span>
+        <span class="name-player--1">
+          Player 2
+        </span>
+      </h2>
       <p class="score" id="score--1">0</p>
       <div class="current">
         <p class="current-label">Current</p>
@@ -30,9 +48,27 @@
     </section>
 
     <img src="dice-5.png" alt="Playing dice" class="dice hidden" />
-    <button class="btn btn--new">🔄 New game</button>
-    <button class="btn btn--roll">🎲 Roll dice</button>
-    <button class="btn btn--hold">📥 Hold</button>
+    <button class="btn btn--new"><span class="lg">🔄 New game</span>
+      <span class="sm">
+        <svg class="icon icon-restart">
+          <use xlink:href="./symbol-defs.svg#icon-spinner11" />
+        </svg>
+      </span>
+    </button>
+    <button class="btn btn--roll"><span class="lg">🎲 Roll dice</span>
+      <span class="sm">
+        <svg class="icon icon-dice">
+          <use xlink:href="./symbol-defs.svg#icon-dice" />
+        </svg>
+      </span>
+    </button>
+    <button class="btn btn--hold"><span class="lg">📥 Hold</span>
+      <span class="sm">
+        <svg class="icon icon-dice">
+          <use xlink:href="./symbol-defs.svg#icon-download" />
+        </svg>
+      </span>
+    </button>
   </main>
   <script src="script.js"></script>
 </body>

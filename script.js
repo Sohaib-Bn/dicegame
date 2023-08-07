@@ -40,9 +40,15 @@ btnRoll.click(function () {
     dice.removeClass('hidden');
     dice.attr('src', `dice-${randomDice}.png`);
     if (randomDice !== 1) {
+      if (fixScore[activePlayer] < 20) {
+        var audio = new Audio('./effects/dice.mp3');
+        audio.play();
+      }
       currentScore += randomDice;
       $(`#current--${activePlayer}`).text(currentScore);
     } else {
+      var audio2 = new Audio('./effects/echec.wav');
+      audio2.play();
       suitchUser();
     }
   }
@@ -51,16 +57,29 @@ btnRoll.click(function () {
 // HOlD
 
 btnHold.click(function () {
-  if (!isWin) {
+  if (!isWin && currentScore != 0) {
     fixScore[activePlayer] += currentScore;
-    console.log(fixScore);
     $(`#score--${activePlayer}`).text(fixScore[activePlayer]);
-    if (fixScore[activePlayer] >= 100) {
+
+    if (fixScore[0] > fixScore[1]) {
+      $('.icon-medal--0').removeClass('hidden');
+      $('.icon-medal--1').addClass('hidden');
+    } else {
+      $('.icon-medal--1').removeClass('hidden');
+      $('.icon-medal--0').addClass('hidden');
+    }
+
+    if (fixScore[activePlayer] >= 20) {
+      var audio3 = new Audio('./effects/win.mp3');
+      audio3.play();
       $(`.player--${activePlayer}`).addClass('player--winner');
       isWin = true;
-      $(`#name--${activePlayer}`).text('winner!');
+      $('.icon-medal').addClass('hidden');
+      $(`.name-player--${activePlayer}`).text('winner!');
       $('.dice').addClass('hidden');
     } else {
+      var audio2 = new Audio('./effects/hold.wav');
+      audio2.play();
       suitchUser();
     }
   }
@@ -69,6 +88,8 @@ btnHold.click(function () {
 //NEW
 
 btnNew.click(function () {
+  var audio4 = new Audio('./effects/restart.wav');
+  audio4.play();
   $(`.player--${activePlayer}`).removeClass('player--winner');
   isWin = false;
   fixScore = [0, 0];
@@ -79,8 +100,10 @@ btnNew.click(function () {
   if (!$('.dice').hasClass('hidden')) {
     $('.dice').addClass('hidden');
   }
-  $('#name--0').text('player 1');
-  $('#name--1').text('player 2');
+  $('.icon-medal').addClass('hidden');
+
+  $('.name-player--0').text('player 1');
+  $('.name-player--1').text('player 2');
 
   $('#current--0').text(currentScore);
   $('#current--1').text(currentScore);
