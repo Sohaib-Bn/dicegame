@@ -170,8 +170,14 @@ main {
   display: none;
 }
 
+button:active,
+button:focus {
+  outline: none;
+}
+
 @media only screen and (max-width: 1000px) {
   main {
+    border-radius: 0;
     height: 100vh;
     display: flex;
     flex-direction: column-reverse;

@@ -55,7 +55,7 @@ btnHold.click(function () {
     fixScore[activePlayer] += currentScore;
     console.log(fixScore);
     $(`#score--${activePlayer}`).text(fixScore[activePlayer]);
-    if (fixScore[activePlayer] >= 20) {
+    if (fixScore[activePlayer] >= 100) {
       $(`.player--${activePlayer}`).addClass('player--winner');
       isWin = true;
       $(`#name--${activePlayer}`).text('winner!');
